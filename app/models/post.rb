@@ -3,6 +3,9 @@ class Post < ActiveRecord::Base
 	has_many :comments 
 	has_many :post_categories
 	has_many :categories, through: :post_categories
-end
 
 # the :creator is just a more descriptive association
+
+# this states you must have a title to save to the database
+validates :title, presence: true
+end

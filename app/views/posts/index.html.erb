@@ -4,15 +4,11 @@
 
 <div class="row">
 	<div class ='span8 well'>
-	<% post.categories.each do |category| %>
-	<span class= "badge"><%= category.name %></span>
-	<% end %>
-	
 	<%= render post.categories %>
 	<h4><%= link_to post.title, post.url %></h4>
 	<p><%= post.description %></p>
 	<p>
-		<spanclass='quiet'>posted by</span> <% post.creator.username %>
+		<span class='quiet'>posted by</span> <% post.creator.username %>
 		<small>at <%=post.created_at %></small>
 	</p>
 	<small>
