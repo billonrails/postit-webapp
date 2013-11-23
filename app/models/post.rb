@@ -7,5 +7,7 @@ class Post < ActiveRecord::Base
 # the :creator is just a more descriptive association
 
 # this states you must have a title to save to the database
-validates :title, presence: true
+validates :title, presence: true, length: {minimum: 5}
+validates :description, presence: true
+validates :url, presence: true, uniqueness: true
 end
