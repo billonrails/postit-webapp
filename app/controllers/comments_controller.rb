@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
-
+	before_action :require_user
 def create
 		@post = Post.find(params[:post_id])
 		#creates the comment and the @post.comment.build sets the comment to the post
 		@comment = @post.comments.build(comment_params) 
-		@comment.creator = User.first
+		@comment.creator = current_user
 
 
 		#@comment.post = @post
@@ -18,9 +18,8 @@ def create
 
 		def show
 			@comment = Comment.find(params[:id])
-		end
-				
-	end
+		end			
+end
 
 	private
 	def comment_params
