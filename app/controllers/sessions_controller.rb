@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 			redirect_to root_path
 		else
 			flash[:error] = "There is something wrong with your username or password."
-			render :new
+			redirect_to login_path
 		end
 	end
 
@@ -19,5 +19,5 @@ class SessionsController < ApplicationController
 		session[:user_id] = nil
 		flash[:notice] = "You've logged out."
 		redirect_to root_path	
-	end
-end
+	end 
+end 
